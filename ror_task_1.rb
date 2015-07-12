@@ -5,7 +5,7 @@ class RorTask1
   # Напишите программу, которая для заданного натурального числа num определяет
   # количество вхождений числа 3 в разложение заданного числа на простые сомножители.
   def how_many_threes(num)
-    primes = Prime.take(num)
+    primes = Prime.take_while { |n| n < num**0.5 }
     devisors = []
     primes.each_with_index do |_, i|
       next if num % primes[i] != 0
